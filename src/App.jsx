@@ -1,10 +1,11 @@
+import NewProject from "./components/NewProject";
 import ProjectsSidebar from "./components/ProjectSidebar";
 
 function App() {
   return (
-    <main className="h-screen my-8">
+    <main className="h-screen my-8 flex gap-8">
       <ProjectsSidebar />
-      {/* Placeholder for future project detail section */}
+      <NewProject />
     </main>
   );
 }
