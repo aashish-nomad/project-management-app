@@ -2,10 +2,10 @@ import Input from "./Input";
 
 export default function NewProject() {
   return (
-    <div>
-      <menu>
-        <button>Cancel</button>
-        <button>Save</button>
+    <div className="w-[35rem] mt-16">
+      <menu className="flex item-center justify-end gap-4 my-4">
+        <button className="text-stone-800 hover:text-stone-950">Cancel</button>
+        <button className="bg-stone-800 text-stone-50 hover:bg-stone-950 ml-2 px-4 py-2 rounded">Save</button>
       </menu>
       <div>
         <Input label="Title" />
