@@ -23,6 +23,7 @@ function App() {
     setProjectState(prevState => {
       return {
         ...prevState,
+        selectedProjectId: undefined,
         projects: [...prevState.projects, projectData]
       }
     });
@@ -38,7 +39,7 @@ function App() {
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar onProjectCreate={handleProjectStateOnCreate} />
+      <ProjectsSidebar onProjectCreate={handleProjectStateOnCreate} projects={projectState.projects} />
       {content}
     </main>
   );
