@@ -18,10 +18,20 @@ function App() {
     })
   }
 
+  function handleProjectOnSave(projectData) {
+
+    setProjectState(prevState => {
+      return {
+        ...prevState,
+        projects: [...prevState.projects, projectData]
+      }
+    });
+  }
+
   let content;
 
   if (projectState.selectedProjectId === null) {
-    content = <NewProject />
+    content = <NewProject onProjectSave={handleProjectOnSave} />
   } else if (projectState.selectedProjectId === undefined) {
     content = <NoProjectSelected onProjectCreate={handleProjectStateOnCreate} />
   }
