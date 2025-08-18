@@ -60,7 +60,6 @@ function App() {
   }
 
   function handleAddTask(taskText) {
-    console.log(taskText);
 
     setProjectState(prevState => {
       const taskId = crypto.randomUUID();
@@ -76,13 +75,18 @@ function App() {
     });
   }
 
-  function handleDeleteTask() {
-
+  function handleDeleteTask(id) {
+    setProjectState(prevState => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.taskId != id)
+      }
+    });
   }
 
   const selectedProject = projectState.projects.find(project => project.id == projectState.selectedProjectId);
 
-  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} onTaskAdd={handleAddTask} onTaskDelete={handleDeleteTask} tasks={projectState.tasks} />;
+  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} onTaskAdd={handleAddTask} onTaskDelete={handleDeleteTask} tasks={projectState.tasks} selectedProjectId={projectState.selectedProjectId} />;
 
   if (projectState.selectedProjectId === null) {
     content = <NewProject onProjectSave={handleProjectOnSave} onCancle={handleProjectCreateCancle} />

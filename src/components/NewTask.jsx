@@ -6,11 +6,12 @@ export default function NewTask({ onTaskAdd }) {
 
   function handleChange(event) {
     setEnteredTask(event.target.value);
-    console.log(enteredTask);
-
   }
 
   function handleTaskAdd() {
+    if(enteredTask.trim() === '') {
+      return;
+    }
     onTaskAdd(enteredTask);
     setEnteredTask('');
   }
